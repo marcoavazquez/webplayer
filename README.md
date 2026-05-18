@@ -14,11 +14,7 @@ A 90's/2000's inspired web music player that plays local audio files from your m
 - [pnpm](https://pnpm.io/) package manager.
 
 ## Setup Instructions
-
-1. Open your terminal and navigate to the project directory:
-   ```bash
-   cd "c:\Users\Marco Antonio\Music\player"
-   ```
+1. Clone or locate the folder where the music is located.
 
 2. Install the required dependencies using `pnpm`:
    ```bash
