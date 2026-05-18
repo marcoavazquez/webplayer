@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroAMP Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="player-container">
+        <div class="main-window">
+            <div class="title-bar">
+                <span class="title-text">RetroAMP v1.0</span>
+                <div class="title-controls">
+                    <button class="win-btn hide-btn">-</button>
+                    <button class="win-btn close-btn">x</button>
+                </div>
+            </div>
+            
+            <div class="display-area">
+                <div class="time-display" id="time-display">00:00</div>
+                <canvas id="visualizer" width="300" height="80"></canvas>
+                <div class="song-info">
+                    <marquee id="now-playing" scrollamount="4">WINAMP... IT REALLY WHIPS THE LLAMA'S ASS!</marquee>
+                    <div class="bitrate-info">
+                        <span>128 kbps</span>
+                        <span>44 kHz</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls-area">
+                <div class="playback-controls">
+                    <button id="prev-btn" class="ctrl-btn" title="Previous">|&lt;&lt;</button>
+                    <button id="play-btn" class="ctrl-btn" title="Play">&gt;</button>
+                    <button id="pause-btn" class="ctrl-btn" title="Pause">||</button>
+                    <button id="stop-btn" class="ctrl-btn" title="Stop">[]</button>
+                    <button id="next-btn" class="ctrl-btn" title="Next">&gt;&gt;|</button>
+                </div>
+                <div class="volume-slider">
+                    <label for="volume">VOL</label>
+                    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
+                </div>
+            </div>
+        </div>
+
+        <div class="equalizer-window">
+            <div class="title-bar">
+                <span class="title-text">GRAPHIC EQUALIZER</span>
+            </div>
+            <div class="eq-controls">
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="30" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>30</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="60" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>60</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="170" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>170</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="310" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>310</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="600" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>600</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="1000" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>1K</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="3000" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>3K</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="6000" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>6K</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="12000" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>12K</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="14000" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>14K</span>
+                </div>
+                <div class="eq-slider">
+                    <input type="range" class="eq-band" data-frequency="16000" min="-12" max="12" step="1" value="0" orient="vertical">
+                    <span>16K</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="playlist-window">
+            <div class="title-bar">
+                <span class="title-text">PLAYLIST</span>
+            </div>
+            <div class="playlist-container">
+                <ul id="playlist">
+                    <!-- Tracks will be dynamically injected here -->
+                    <li class="loading">Loading tracks...</li>
+                </ul>
+            </div>
+            <div class="playlist-controls">
+                <div id="playlist-info">0 tracks | 00:00</div>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="audio-element" preload="auto"></audio>
+    <script src="app.js"></script>
+</body>
+</html>
